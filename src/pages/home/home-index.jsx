@@ -15,10 +15,12 @@ const HomeIndex = () => {
   }, [productData]);
 
   const handleFilterChange = (category, [minPrice, maxPrice], searchQuery) => {
+    const trimmedSearchQuery = searchQuery.trim();
+
     const filtered = productData.filter(product => {
       const withinCategory = category ? product.category === category : true;
       const withinPriceRange = product.price >= minPrice && product.price <= maxPrice;
-      const matchesSearchQuery = searchQuery ? product.title && product.title.toLowerCase().includes(searchQuery.toLowerCase()) : true;
+      const matchesSearchQuery = searchQuery ? product.title && product.title.toLowerCase().includes(trimmedSearchQuery.toLowerCase()) : true;
       return withinCategory && withinPriceRange && matchesSearchQuery;
     });
 
