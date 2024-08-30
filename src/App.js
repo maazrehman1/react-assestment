@@ -1,6 +1,6 @@
 import './App.css';
 import BaseLayout from './layouts/base-layout/base-layout';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomeIndex from './pages/home/home-index';
 import ProductDetails from './pages/product-details/product-details';
 import { ProductProvider } from './context/productContext';
