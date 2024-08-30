@@ -1,13 +1,16 @@
-/* src/components/filter-sidebar/filter-sidebar.module.scss */
 .sidebar {
-  width: 100%;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  width: 95%;
   background-color: #f9f9f9;
+  padding-inline: 50px 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-inline: auto;
+  @media (max-width:767px){
+    flex-direction: column;
+    padding: 0;
+  }
 }
 
 .heading {

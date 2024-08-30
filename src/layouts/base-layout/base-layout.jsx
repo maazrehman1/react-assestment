@@ -5,7 +5,7 @@ const BaseLayout = ({ children }) => {
     return (
         <div >
             <div className={styles.container}>
-                header index
+                <h2>React Assestment</h2>
             </div>
             <main>{children}</main>
         </div>
