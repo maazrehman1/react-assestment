@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<BaseLayout><HomeIndex /></BaseLayout>} />
-          <Route exact path="/product" element={<BaseLayout><ProductDetails /></BaseLayout>} />
+          <Route exact path="/products/:productId" element={<BaseLayout><ProductDetails /></BaseLayout>} />
         </Routes>
       </Router>
     </>

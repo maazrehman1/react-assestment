@@ -11,7 +11,6 @@ const HomeIndex = () => {
 
   if (error) return <div>Error fetching products</div>;
   if (!productData) return <div>Loading...</div>;
-
   return (
     <div>
       HomeIndex
