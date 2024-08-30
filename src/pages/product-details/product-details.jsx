@@ -1,4 +1,3 @@
-// src/components/product-details/product-details.js
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useProduct } from '../../context/productContext';

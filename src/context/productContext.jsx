@@ -1,4 +1,3 @@
-// src/context/ProductContext.js
 import React, { createContext, useContext } from 'react';
 import useSWR from 'swr';
 import axios from 'axios';
