@@ -1,19 +1,17 @@
+// src/components/product-details/product-details.js
 import React from 'react';
-import useSWR from 'swr';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useProduct } from '../../context/productContext';
 import styles from "./product-details.module.scss";
 
-// Fetcher function for useSWR
-const fetcher = url => axios.get(url).then(res => res.data);
-
 const ProductDetails = () => {
-  const { productId } = useParams(); 
-  //setting state as product for single product details 
-  const { data: product, error } = useSWR(`https://fakestoreapi.com/products/${productId}`, fetcher);
+  const { productId } = useParams();
+  const { productData, error } = useProduct();
+  const product = productData?.find(p => p.id === parseInt(productId));
 
   if (error) return <div>Error fetching product details</div>;
-  if (!product) return <div>Loading...</div>;
+  if (!productData) return <div>Loading...</div>;
+  if (!product) return <div>Product not found</div>;
 
   return (
     <div className={styles.productPage}>
