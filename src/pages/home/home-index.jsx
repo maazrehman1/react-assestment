@@ -18,9 +18,10 @@ const HomeIndex = () => {
     const filtered = productData.filter(product => {
       const withinCategory = category ? product.category === category : true;
       const withinPriceRange = product.price >= minPrice && product.price <= maxPrice;
-      const matchesSearchQuery = searchQuery ? product.name.toLowerCase().includes(searchQuery.toLowerCase()) : true;
+      const matchesSearchQuery = searchQuery ? product.title && product.title.toLowerCase().includes(searchQuery.toLowerCase()) : true;
       return withinCategory && withinPriceRange && matchesSearchQuery;
     });
+
     setFilteredProducts(filtered);
   };
 
