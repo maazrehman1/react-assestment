@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useSWR from 'swr';
 import axios from 'axios';
-import styles from "./home-index.module.scss"
+import styles from "./home-index.module.scss";
 import ProductCard from '../../components/product-card/product-card-index';
 
+const fetcher = url => axios.get(url).then(res => res.data);
+
 const HomeIndex = () => {
-  const [productData, setProductData] = useState([]);
+  const { data: productData, error } = useSWR('https://fakestoreapi.com/products', fetcher);
 
-  useEffect(() => {
-    fetchProducts()
-  }, [])
-
-
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get('https://fakestoreapi.com/products');
-      setProductData(response.data);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
-  };
+  if (error) return <div>Error fetching products</div>;
+  if (!productData) return <div>Loading...</div>;
 
   return (
     <div>
@@ -29,7 +21,7 @@ const HomeIndex = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomeIndex
+export default HomeIndex;
